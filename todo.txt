@@ -1,0 +1,92 @@
+You are an expert full-stack developer with strong knowledge in **quantum computing + web visualization**.  
+Your task is to build an **Intelligent Quantum Computing Simulator** with both a Python backend and a modern web frontend.  
+
+---
+
+## 🔹 Project Title
+Intelligent Quantum Computing Simulator (with Web Visualization)
+
+---
+
+## 🔹 Core Concepts
+- **Quantum Backend (Python)**  
+  - Use **complex number matrices** for quantum states and gates.  
+  - Implement **tensor networks** for efficient simulation.  
+  - Use **tree structures** for circuit optimization.  
+  - Use **sparse matrices** for scalable simulation.  
+
+- **Web Frontend (React + Visualization)**  
+  - Display **quantum circuits** (wires, gates, measurements).  
+  - Show **live quantum state vectors** (amplitudes, Bloch spheres).  
+  - Plot **measurement probabilities** (bar chart/histogram).  
+  - Interactive interface to build circuits (drag and drop gates).  
+
+- **Bridge**: Use a **FastAPI or Flask backend** to connect the Python simulator with the web frontend.
+
+---
+
+## 🔹 Project Structure
+
+### 1. `quantum_simulator/` (Python backend)
+- `qubit.py` → Qubit class, single-qubit states.
+- `gates.py` → Gate definitions (X, Y, Z, H, CNOT, T, etc.) in dense & sparse.
+- `circuits.py` → QuantumCircuit class, tensor network simulation.
+- `measure.py` → Measurement utilities (probabilities, collapse).
+- `optimizer.py` → Tree-based gate optimization.
+- `tensor_networks.py` → MPS/tensor contraction.
+- `sparse_utils.py` → Sparse matrix helpers.
+- `api.py` → FastAPI endpoints for:  
+  - `POST /run-circuit` → Run a quantum circuit and return results (state, probs).  
+  - `GET /gates` → Fetch available gates.  
+  - `POST /optimize` → Optimize a circuit.  
+
+### 2. `web-ui/` (Frontend in React + Tailwind + Recharts + Three.js)
+- `src/components/CircuitBuilder.jsx`  
+  - Drag & drop interface for wires + gates.  
+- `src/components/StateVectorView.jsx`  
+  - Shows complex amplitudes in bar chart.  
+- `src/components/ProbabilityHistogram.jsx`  
+  - Histogram of measurement results.  
+- `src/components/BlochSphere.jsx`  
+  - 3D Bloch sphere visualization using Three.js.  
+- `src/App.jsx`  
+  - Main app, integrates components.  
+
+### 3. `main.py`
+- Demonstrates backend without web.  
+- Creates a Bell state circuit and prints results.  
+
+### 4. `README.md`
+- Instructions to run backend + frontend.  
+
+---
+
+## 🔹 Tech Stack
+- **Backend**: Python 3.10+, FastAPI, NumPy, SciPy, opt_einsum.  
+- **Frontend**: React (Vite), TailwindCSS, Recharts (plots), Three.js (Bloch sphere).  
+- **API Communication**: REST JSON via FastAPI.  
+
+---
+
+## 🔹 Deliverables
+1. Fully working **Python quantum simulator**.  
+2. **FastAPI backend** exposing quantum circuit simulation endpoints.  
+3. **React web UI** to build circuits and visualize results.  
+4. Bloch sphere + histogram visualization.  
+5. README with setup instructions.  
+
+---
+
+## 🔹 Example Flow
+1. User opens web app.  
+2. Builds a circuit by dragging gates onto wires.  
+3. Clicks “Run Simulation”.  
+4. React sends circuit JSON → FastAPI.  
+5. Python simulator runs → returns state + probabilities.  
+6. Web app visualizes:  
+   - Circuit diagram  
+   - State vector (bar chart)  
+   - Measurement histogram  
+   - Bloch sphere animation  
+
+---
